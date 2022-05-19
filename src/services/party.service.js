@@ -47,7 +47,7 @@ const createParty = async ({ partyname, partyleader, partysecretary, noofmps }) 
 
 const getParties = async function (data) {
   try {
-    const allParties = await partyModel.find(data);
+    const allParties = await PartyModel.find(data);
     return {
       message: "Listing all parties",
       data: allParties,

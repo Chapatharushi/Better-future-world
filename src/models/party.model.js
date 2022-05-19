@@ -7,7 +7,7 @@ const partySchema = new Schema(
     partyname: { type: String, require: true },
     partyleader: { type: String, require: true },
     partysecretary: { type: String, require: true },
-    noofmps: { type: Number, require: true },
+    noofmps: { type: String, require: true },
   },
   {
     timestamps: true,
