@@ -26,7 +26,7 @@ const createParty = async (req, res) => {
   }
 };
 
-const findAll = async function (req, res) {
+const findAllParty = async function (req, res) {
   try {
     var parties = await PartyService.getParties();
     return res.status(200).json({
@@ -39,7 +39,7 @@ const findAll = async function (req, res) {
 };
 
 // Find a single party with an id
-const findOne = async (req, res) => {
+const findOneParty = async (req, res) => {
   try {
     const party = await PartyService.getPartyById(req.params.id);
     res.status(200).json(party);
@@ -49,7 +49,7 @@ const findOne = async (req, res) => {
 };
 
 // Update a party by the id in the request
-const update = async (req, res) => {
+const updateParty = async (req, res) => {
   try {
     const id = req.params.id;
     const { partyname, partyleader, partysecretary, noofmps } = req.body;
@@ -83,8 +83,8 @@ const partyDelete = async (req, res) => {
 
 module.exports = {
   createParty,
-  findOne,
-  findAll,
-  update,
+  findOneParty,
+  findAllParty,
+  updateParty,
   partyDelete,
 };

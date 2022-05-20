@@ -1,7 +1,9 @@
 const express = require("express");
 
-const userRoutes = require("./v1/user.route");
+const politicianRoutes = require("./v1/politician.route");
+const policyRoutes = require("./v1/policy.route");
 const partyRoutes = require("./v1/party.route");
+const userRoutes = require("./v1/user.route");
 
 // base route - /api
 const router = express.Router();
@@ -9,9 +11,13 @@ const router = express.Router();
 // Health check route
 router.get("/v1/health", (req, res) => res.status(200).send("UP"));
 
-// v1 routes
-router.use("/v1/user", userRoutes);
+// v1 politician routes
+router.use("/v1/politician", politicianRoutes);
+// v1 policy routes
+router.use("/v1/policy", policyRoutes);
+// v1 party routes
 router.use("/v1/party", partyRoutes);
+// v1 user routes
+router.use("/v1/user", userRoutes);
 
 module.exports = router;
-

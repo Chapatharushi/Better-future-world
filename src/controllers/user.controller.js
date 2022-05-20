@@ -3,7 +3,7 @@ const { validationResult } = require("express-validator");
 const httpStatus = require("http-status");
 
 //Create and Save a new users
-const create = async (req, res) => {
+const createUser = async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -30,7 +30,7 @@ const create = async (req, res) => {
   }
 };
 
-const findAll = async function (req, res) {
+const findAllUsers = async function (req, res) {
   // Validate request parameters, queries using express-validator
   try {
     var users = await UserService.getUsers();
@@ -44,7 +44,7 @@ const findAll = async function (req, res) {
 };
 
 // Find a single user exercise with an id
-const findOne = async (req, res) => {
+const findOneUser = async (req, res) => {
   try {
     const user = await UserService.getUserById(req.params.id);
     res.status(200).json(todo);
@@ -54,7 +54,7 @@ const findOne = async (req, res) => {
 };
 
 // Update a user by the id in the request
-const update = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
     const id = req.params.id;
     const { fullname, nic, dob, gender, email, phonenu, school, qualification} = req.body;
@@ -90,9 +90,9 @@ const userDelete = async ( req, res ) => {
 };
 
 module.exports = {
-  create,
-  findOne,
-  findAll,
-  update,
+  createUser,
+  findOneUser,
+  findAllUsers,
+  updateUser,
   userDelete,
 };
